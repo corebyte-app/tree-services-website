@@ -1,57 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { businessConfig } from '../config/businessConfig';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // In a real application, you would send this data to your backend
-    console.log('Contact form submitted:', formData);
-    setIsSubmitted(true);
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-            <div className="bg-tree-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">✓</span>
-            </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">
-              Message Sent Successfully!
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Thank you for contacting us. We'll get back to you as soon as possible, typically within 24 hours.
-            </p>
-            <a
-              href={`tel:${businessConfig.contact.phone}`}
-              className="bg-tree-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-tree-green-700 transition-colors inline-block"
-            >
-              Call Us: {businessConfig.contact.phone}
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div>
       {/* Hero Section */}
@@ -117,7 +67,6 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-
             </div>
 
             {/* Why Choose Us - Sidebar */}
@@ -152,11 +101,9 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
 
       {/* CTA Section */}
       <section className="bg-tree-green-600 text-white py-8 lg:py-12">

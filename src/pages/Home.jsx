@@ -1,31 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { imageConfig } from '../config/imageConfig';
-import { businessConfig } from '../config/businessConfig';
+import React from "react";
+import { Link } from "react-router-dom";
+import { imageConfig } from "../config/imageConfig";
+import { businessConfig } from "../config/businessConfig";
 
 const Home = () => {
   const services = [
     {
-      title: 'Tree Removal',
-      description: 'Safe and efficient removal of unwanted or dangerous trees',
+      title: "Tree Removal",
+      description: "Safe and efficient removal of unwanted or dangerous trees",
       image: imageConfig.services.treeRemoval.url,
       alt: imageConfig.services.treeRemoval.alt,
-      link: '/services/tree-removal'
+      link: "/services/tree-removal",
     },
     {
-      title: 'Tree Trimming',
-      description: 'Professional pruning and trimming to maintain tree health',
+      title: "Tree Trimming",
+      description: "Professional pruning and trimming to maintain tree health",
       image: imageConfig.services.treeTrimming.url,
       alt: imageConfig.services.treeTrimming.alt,
-      link: '/services/tree-trimming'
+      link: "/services/tree-trimming",
     },
     {
-      title: 'Stump Grinding',
-      description: 'Complete stump removal and grinding services',
+      title: "Stump Grinding",
+      description: "Complete stump removal and grinding services",
       image: imageConfig.services.stumpGrinding.url,
       alt: imageConfig.services.stumpGrinding.alt,
-      link: '/services/stump-grinding'
-    }
+      link: "/services/stump-grinding",
+    },
   ];
 
   return (
@@ -60,6 +60,7 @@ const Home = () => {
             <div>
               <img
                 src={imageConfig.hero.main}
+                // src="https://unsplash.com/photos/the-lumberjack-working-in-a-forest-harvest-of-timber-firewood-as-a-renewable-energy-source-lumber-industry-theme-people-at-work-LNSrSyNT2E4"
                 alt={imageConfig.hero.alt}
                 className="rounded-lg shadow-xl"
               />
@@ -76,13 +77,17 @@ const Home = () => {
               Our Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive tree care services to keep your property safe and beautiful
+              We provide comprehensive tree care services to keep your property
+              safe and beautiful
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
                 <img
                   src={service.image}
                   alt={service.alt}
@@ -92,9 +97,7 @@ const Home = () => {
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    {service.description}
-                  </p>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
                   <Link
                     to={service.link}
                     className="text-tree-green-600 font-semibold hover:text-tree-green-700 transition-colors"
@@ -147,7 +150,8 @@ const Home = () => {
                 Experienced Team
               </h3>
               <p className="text-gray-600">
-                Years of experience in professional tree care and safety practices
+                Years of experience in professional tree care and safety
+                practices
               </p>
             </div>
 
@@ -159,7 +163,8 @@ const Home = () => {
                 Free Estimates
               </h3>
               <p className="text-gray-600">
-                No-obligation consultations and competitive pricing for all services
+                No-obligation consultations and competitive pricing for all
+                services
               </p>
             </div>
           </div>
@@ -173,7 +178,8 @@ const Home = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-tree-green-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and quote. We're here to help with all your tree care needs.
+            Contact us today for a free consultation and quote. We're here to
+            help with all your tree care needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
