@@ -1,0 +1,15 @@
+{
+  "short_name": "TreeCare Pro",
+  "name": "TreeCare Pro - Professional Tree Services",
+  "icons": [
+    {
+      "src": "favicon-tree.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#16a34a",
+  "background_color": "#ffffff"
+}

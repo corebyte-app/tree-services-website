@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://skylinetreeservices.co.nz/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Block access to sensitive areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Allow search engines to crawl images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Specific instructions for Bing
+User-agent: Bingbot
+Crawl-delay: 2
