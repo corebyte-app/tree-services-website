@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { businessConfig } from '../config/businessConfig';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const location = useLocation();
+  const { t, toggleLanguage } = useLanguage();
 
   const isActive = (path) => location.pathname === path;
   const isServicesActive = () => location.pathname.startsWith('/services');
 
   const mainNavItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Quote', path: '/quote' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.quote'), path: '/quote' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
 
   const serviceItems = [
-    { name: 'Tree Removal', path: '/services/tree-removal' },
-    { name: 'Tree Trimming', path: '/services/tree-trimming' },
-    { name: 'Stump Grinding', path: '/services/stump-grinding' },
+    { name: t('nav.treeRemoval'), path: '/services/tree-removal' },
+    { name: t('nav.treeTrimming'), path: '/services/tree-trimming' },
+    { name: t('nav.stumpGrinding'), path: '/services/stump-grinding' },
   ];
 
   return (
@@ -45,7 +47,7 @@ const Navbar = () => {
                   : 'text-gray-700 hover:text-tree-green-700 hover:bg-tree-green-50'
               }`}
             >
-              Home
+              {t('nav.home')}
             </Link>
 
             {/* Services Dropdown */}
@@ -61,7 +63,7 @@ const Navbar = () => {
                     : 'text-gray-700 hover:text-tree-green-700 hover:bg-tree-green-50'
                 }`}
               >
-                Services
+                {t('nav.services')}
                 <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -69,7 +71,7 @@ const Navbar = () => {
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
-                <div className="absolute left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-10">
+                <div className="absolute left-0 top-full w-48 bg-white rounded-md shadow-lg border border-gray-200 z-10">
                   {serviceItems.map((item) => (
                     <Link
                       key={item.path}
@@ -101,6 +103,14 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-tree-green-700 hover:bg-tree-green-50 transition-colors"
+            >
+              {t('nav.language')}
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -140,13 +150,13 @@ const Navbar = () => {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Home
+                {t('nav.home')}
               </Link>
 
               {/* Services Section */}
               <div className="space-y-1">
                 <div className="px-3 py-2 text-base font-medium text-gray-800 border-b border-gray-200">
-                  Services
+                  {t('nav.services')}
                 </div>
                 {serviceItems.map((item) => (
                   <Link
@@ -179,6 +189,17 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Language Switcher */}
+              <button
+                onClick={() => {
+                  toggleLanguage();
+                  setIsOpen(false);
+                }}
+                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-tree-green-700 hover:bg-tree-green-50"
+              >
+                {t('nav.language')}
+              </button>
             </div>
           </div>
         )}

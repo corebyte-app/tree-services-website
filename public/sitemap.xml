@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/" />
+  </url>
+
+  <!-- Services Overview -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/services</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/services" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/services" />
+  </url>
+
+  <!-- Tree Removal -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/services/tree-removal</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/services/tree-removal" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/services/tree-removal" />
+  </url>
+
+  <!-- Tree Trimming -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/services/tree-trimming</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/services/tree-trimming" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/services/tree-trimming" />
+  </url>
+
+  <!-- Stump Grinding -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/services/stump-grinding</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/services/stump-grinding" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/services/stump-grinding" />
+  </url>
+
+  <!-- Quote Page -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/quote</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/quote" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/quote" />
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://skylinetreeservices.co.nz/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-nz" href="https://skylinetreeservices.co.nz/contact" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://skylinetreeservices.co.nz/contact" />
+  </url>
+
+</urlset>

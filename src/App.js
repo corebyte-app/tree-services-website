@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -11,19 +12,21 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="services/tree-removal" element={<TreeRemoval />} />
-          <Route path="services/tree-trimming" element={<TreeTrimming />} />
-          <Route path="services/stump-grinding" element={<StumpGrinding />} />
-          <Route path="quote" element={<Quote />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<Services />} />
+            <Route path="services/tree-removal" element={<TreeRemoval />} />
+            <Route path="services/tree-trimming" element={<TreeTrimming />} />
+            <Route path="services/stump-grinding" element={<StumpGrinding />} />
+            <Route path="quote" element={<Quote />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 

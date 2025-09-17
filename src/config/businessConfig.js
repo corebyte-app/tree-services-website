@@ -30,11 +30,28 @@ export const businessConfig = {
     },
   },
 
-  // Service Areas
+  // Service Areas - Auckland Specific
   serviceAreas: [
+    "North Shore",
+    "West Auckland",
+    "South Auckland",
+    "East Auckland",
+    "Central Auckland",
+    "Waitakere",
+    "Manukau",
+    "Papakura",
+    "Franklin",
+    "Rodney"
+  ],
+
+  // Property Types Served
+  propertyTypes: [
     "Residential Properties",
     "Commercial Properties",
-    "Municipal Services",
+    "Industrial Sites",
+    "Schools & Institutions",
+    "Parks & Council Land",
+    "Retirement Villages"
   ],
 
   // Business Hours

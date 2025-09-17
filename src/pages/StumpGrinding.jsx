@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageConfig } from '../config/imageConfig';
 import { businessConfig } from '../config/businessConfig';
+import { useSEO } from '../hooks/useSEO';
 
 const StumpGrinding = () => {
+  useSEO('stumpGrinding');
   const benefits = [
     'Eliminates trip hazards',
     'Prevents pest infestations',

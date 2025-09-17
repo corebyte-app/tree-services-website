@@ -2,31 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageConfig } from '../config/imageConfig';
 import { businessConfig } from '../config/businessConfig';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 const Services = () => {
+  const { t } = useLanguage();
+  useSEO('services');
   const services = [
     {
-      title: 'Tree Removal',
-      description: 'Safe and efficient removal of unwanted, diseased, or dangerous trees using professional equipment and techniques.',
+      title: t('services.treeRemoval.title'),
+      description: t('services.treeRemoval.description'),
       image: imageConfig.services.treeRemoval.url,
       alt: imageConfig.services.treeRemoval.alt,
-      features: ['Emergency tree removal', 'Hazardous tree assessment', 'Complete cleanup', 'Stump removal available'],
+      features: t('services.treeRemoval.features'),
       link: '/services/tree-removal'
     },
     {
-      title: 'Tree Trimming & Pruning',
-      description: 'Professional pruning and trimming services to maintain tree health, improve appearance, and ensure safety.',
+      title: t('services.treeTrimming.title'),
+      description: t('services.treeTrimming.description'),
       image: imageConfig.services.treeTrimming.url,
       alt: imageConfig.services.treeTrimming.alt,
-      features: ['Crown thinning', 'Dead wood removal', 'Shape enhancement', 'Health maintenance'],
+      features: t('services.treeTrimming.features'),
       link: '/services/tree-trimming'
     },
     {
-      title: 'Stump Grinding',
-      description: 'Complete stump removal and grinding services to reclaim your outdoor space and eliminate trip hazards.',
+      title: t('services.stumpGrinding.title'),
+      description: t('services.stumpGrinding.description'),
       image: imageConfig.services.stumpGrinding.url,
       alt: imageConfig.services.stumpGrinding.alt,
-      features: ['Below-grade grinding', 'Cleanup included', 'Mulch available', 'Root system removal'],
+      features: t('services.stumpGrinding.features'),
       link: '/services/stump-grinding'
     }
   ];
@@ -37,11 +41,10 @@ const Services = () => {
       <section className="bg-tree-green-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Professional Tree Services
+            {t('services.title')}
           </h1>
           <p className="text-xl text-tree-green-100 max-w-3xl mx-auto">
-            Comprehensive tree care solutions for residential and commercial properties.
-            Licensed, insured, and committed to excellence.
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -66,7 +69,7 @@ const Services = () => {
                   </p>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
+                    <h4 className="font-semibold text-gray-800 mb-3">{t('services.keyFeatures')}</h4>
                     <ul className="grid grid-cols-2 gap-2">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-gray-600">
@@ -82,13 +85,13 @@ const Services = () => {
                       to={service.link}
                       className="bg-tree-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-tree-green-700 transition-colors"
                     >
-                      Learn More
+                      {t('services.learnMore')}
                     </Link>
                     <Link
                       to="/quote"
                       className="border-2 border-tree-green-600 text-tree-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-tree-green-600 hover:text-white transition-colors"
                     >
-                      Get Quote
+                      {t('services.getQuote')}
                     </Link>
                   </div>
                 </div>
@@ -103,10 +106,10 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Process
+              {t('services.process.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Simple, straightforward steps to get your tree service completed
+              {t('services.process.subtitle')}
             </p>
           </div>
 
@@ -115,32 +118,32 @@ const Services = () => {
               <div className="bg-tree-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Contact Us</h3>
-              <p className="text-gray-600">Call or fill out our quote form to get started</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('services.process.step1.title')}</h3>
+              <p className="text-gray-600">{t('services.process.step1.description')}</p>
             </div>
 
             <div className="text-center">
               <div className="bg-tree-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Site Assessment</h3>
-              <p className="text-gray-600">We visit your property for a free consultation</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('services.process.step2.title')}</h3>
+              <p className="text-gray-600">{t('services.process.step2.description')}</p>
             </div>
 
             <div className="text-center">
               <div className="bg-tree-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 3
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Quote & Schedule</h3>
-              <p className="text-gray-600">Receive your quote and schedule the work</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('services.process.step3.title')}</h3>
+              <p className="text-gray-600">{t('services.process.step3.description')}</p>
             </div>
 
             <div className="text-center">
               <div className="bg-tree-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 4
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Professional Service</h3>
-              <p className="text-gray-600">Expert completion with full cleanup</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('services.process.step4.title')}</h3>
+              <p className="text-gray-600">{t('services.process.step4.description')}</p>
             </div>
           </div>
         </div>
@@ -150,23 +153,23 @@ const Services = () => {
       <section className="bg-tree-green-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Need Tree Services?
+            {t('services.cta.title')}
           </h2>
           <p className="text-xl text-tree-green-100 mb-8 max-w-2xl mx-auto">
-            Get a free consultation and quote for any of our professional tree services.
+            {t('services.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/quote"
               className="bg-white text-tree-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-tree-green-50 transition-colors"
             >
-              Request Free Quote
+              {t('services.cta.requestQuote')}
             </Link>
             <a
               href={`tel:${businessConfig.contact.phone}`}
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-tree-green-700 transition-colors"
             >
-              Call {businessConfig.contact.phone}
+              {t('services.cta.callPhone')}
             </a>
           </div>
         </div>

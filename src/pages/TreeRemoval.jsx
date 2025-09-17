@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageConfig } from '../config/imageConfig';
 import { businessConfig } from '../config/businessConfig';
+import { useSEO } from '../hooks/useSEO';
 
 const TreeRemoval = () => {
+  useSEO('treeRemoval');
   const reasons = [
     'Diseased or dying trees',
     'Storm-damaged trees',

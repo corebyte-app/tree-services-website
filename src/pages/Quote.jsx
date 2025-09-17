@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
 import { businessConfig } from '../config/businessConfig';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 const Quote = () => {
+  const { t } = useLanguage();
+  useSEO('quote');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -88,23 +92,22 @@ const Quote = () => {
               <span className="text-3xl">✓</span>
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
-              Quote Request Submitted!
+              {t('quote.success.title')}
             </h1>
             <p className="text-lg text-gray-600 mb-6">
-              Thank you for your quote request. We'll review your information and contact you within 24 hours to schedule a free consultation.
+              {t('quote.success.message')}
             </p>
             <div className="border-t pt-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">What happens next?</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('quote.success.nextSteps')}</h3>
               <div className="text-left max-w-md mx-auto space-y-2">
-                <p className="text-gray-600">• We'll call you within 24 hours</p>
-                <p className="text-gray-600">• Schedule a free on-site consultation</p>
-                <p className="text-gray-600">• Provide a detailed written estimate</p>
-                <p className="text-gray-600">• Answer any questions you may have</p>
+                {t('quote.success.steps').map((step, index) => (
+                  <p key={index} className="text-gray-600">• {step}</p>
+                ))}
               </div>
             </div>
             <div className="mt-8">
               <p className="text-gray-600">
-                Need immediate assistance? Call us at{' '}
+                {t('quote.success.immediateHelp')}{' '}
                 <a href={`tel:${businessConfig.contact.phone}`} className="text-tree-green-600 font-semibold">
                   {businessConfig.contact.phone}
                 </a>
@@ -122,11 +125,10 @@ const Quote = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Request a Free Quote
+            {t('quote.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get a professional assessment and detailed quote for your tree service needs.
-            All consultations are free with no obligation.
+            {t('quote.subtitle')}
           </p>
         </div>
 
@@ -135,11 +137,11 @@ const Quote = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Personal Information</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('quote.personalInfo')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name *
+                    {t('quote.firstName')} *
                   </label>
                   <input
                     type="text"
@@ -153,7 +155,7 @@ const Quote = () => {
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name *
+                    {t('quote.lastName')} *
                   </label>
                   <input
                     type="text"
@@ -167,7 +169,7 @@ const Quote = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                    {t('quote.email')} *
                   </label>
                   <input
                     type="email"
@@ -181,7 +183,7 @@ const Quote = () => {
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number *
+                    {t('quote.phone')} *
                   </label>
                   <input
                     type="tel"
@@ -198,11 +200,11 @@ const Quote = () => {
 
             {/* Property Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Property Information</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('quote.propertyInfo')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
                   <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
-                    Street Address *
+                    {t('quote.address')} *
                   </label>
                   <input
                     type="text"
@@ -216,7 +218,7 @@ const Quote = () => {
                 </div>
                 <div>
                   <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                    City *
+                    {t('quote.city')} *
                   </label>
                   <input
                     type="text"
@@ -230,7 +232,7 @@ const Quote = () => {
                 </div>
                 <div>
                   <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
-                    ZIP Code *
+                    {t('quote.zipCode')} *
                   </label>
                   <input
                     type="text"
@@ -247,11 +249,11 @@ const Quote = () => {
 
             {/* Service Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Service Information</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('quote.serviceInfo')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700 mb-2">
-                    Type of Service *
+                    {t('quote.serviceType')} *
                   </label>
                   <select
                     id="serviceType"
@@ -261,19 +263,19 @@ const Quote = () => {
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tree-green-500 focus:border-transparent"
                   >
-                    <option value="">Select service type</option>
-                    <option value="tree-removal">Tree Removal</option>
-                    <option value="tree-trimming">Tree Trimming/Pruning</option>
-                    <option value="stump-grinding">Stump Grinding</option>
-                    <option value="land-clearing">Land Clearing</option>
-                    <option value="emergency">Emergency Services</option>
-                    <option value="multiple">Multiple Services</option>
-                    <option value="consultation">Consultation Only</option>
+                    <option value="">{t('quote.selectService')}</option>
+                    <option value="tree-removal">{t('quote.services.treeRemoval')}</option>
+                    <option value="tree-trimming">{t('quote.services.treeTrimming')}</option>
+                    <option value="stump-grinding">{t('quote.services.stumpGrinding')}</option>
+                    <option value="land-clearing">{t('quote.services.landClearing')}</option>
+                    <option value="emergency">{t('quote.services.emergency')}</option>
+                    <option value="multiple">{t('quote.services.multiple')}</option>
+                    <option value="consultation">{t('quote.services.consultation')}</option>
                   </select>
                 </div>
                 <div>
                   <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
-                    Timeline *
+                    {t('quote.urgency')} *
                   </label>
                   <select
                     id="urgency"
@@ -283,12 +285,12 @@ const Quote = () => {
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tree-green-500 focus:border-transparent"
                   >
-                    <option value="">Select timeline</option>
-                    <option value="emergency">Emergency (ASAP)</option>
-                    <option value="within-week">Within 1 Week</option>
-                    <option value="within-month">Within 1 Month</option>
-                    <option value="flexible">Flexible Timeline</option>
-                    <option value="planning">Planning Ahead</option>
+                    <option value="">{t('quote.selectUrgency')}</option>
+                    <option value="emergency">{t('quote.timelines.emergency')}</option>
+                    <option value="within-week">{t('quote.timelines.withinWeek')}</option>
+                    <option value="within-month">{t('quote.timelines.withinMonth')}</option>
+                    <option value="flexible">{t('quote.timelines.flexible')}</option>
+                    <option value="planning">{t('quote.timelines.planning')}</option>
                   </select>
                 </div>
               </div>
@@ -297,7 +299,7 @@ const Quote = () => {
             {/* Project Description */}
             <div>
               <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                Project Description *
+                {t('quote.description')} *
               </label>
               <textarea
                 id="description"
@@ -306,7 +308,7 @@ const Quote = () => {
                 rows={4}
                 value={formData.description}
                 onChange={handleChange}
-                placeholder="Please describe your tree service needs in detail. Include information about tree size, location, any challenges, and specific concerns."
+                placeholder={t('quote.descriptionPlaceholder')}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tree-green-500 focus:border-transparent"
               />
             </div>
@@ -314,7 +316,7 @@ const Quote = () => {
             {/* Photo Upload */}
             <div>
               <label htmlFor="photos" className="block text-sm font-medium text-gray-700 mb-2">
-                Photos (Optional)
+                {t('quote.photos')}
               </label>
               <input
                 type="file"
@@ -326,7 +328,7 @@ const Quote = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-tree-green-500 focus:border-transparent"
               />
               <p className="text-sm text-gray-500 mt-1">
-                Adding photos helps us provide a more accurate estimate. You can upload multiple images.
+                {t('quote.photosHelp')}
               </p>
             </div>
 
@@ -346,10 +348,10 @@ const Quote = () => {
                     : 'bg-tree-green-600 text-white hover:bg-tree-green-700'
                 }`}
               >
-                {isSubmitting ? 'Sending Quote Request...' : 'Submit Quote Request'}
+                {isSubmitting ? t('quote.submitting') : t('quote.submit')}
               </button>
               <p className="text-sm text-gray-500 text-center mt-3">
-                * Required fields. We'll email you a confirmation and contact you within 24 hours.
+                {t('quote.requiredFields')}
               </p>
             </div>
           </form>
@@ -361,38 +363,38 @@ const Quote = () => {
             <div className="bg-tree-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">📞</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Quick Response</h3>
-            <p className="text-gray-600">We respond to all quote requests within 24 hours</p>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('quote.features.quickResponse.title')}</h3>
+            <p className="text-gray-600">{t('quote.features.quickResponse.description')}</p>
           </div>
 
           <div className="text-center">
             <div className="bg-tree-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">💰</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Free Consultation</h3>
-            <p className="text-gray-600">All on-site consultations and estimates are completely free</p>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('quote.features.freeConsultation.title')}</h3>
+            <p className="text-gray-600">{t('quote.features.freeConsultation.description')}</p>
           </div>
 
           <div className="text-center">
             <div className="bg-tree-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">📋</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Detailed Estimate</h3>
-            <p className="text-gray-600">Receive a comprehensive written estimate with no hidden fees</p>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('quote.features.detailedEstimate.title')}</h3>
+            <p className="text-gray-600">{t('quote.features.detailedEstimate.description')}</p>
           </div>
         </div>
 
         {/* Emergency Contact */}
         <div className="mt-12 bg-tree-green-600 text-white rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Need Emergency Tree Services?</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('quote.emergency.title')}</h2>
           <p className="text-tree-green-100 mb-4">
-            For urgent tree emergencies, storm damage, or safety hazards, call us immediately.
+            {t('quote.emergency.description')}
           </p>
           <a
             href={`tel:${businessConfig.contact.emergencyPhone}`}
             className="bg-white text-tree-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-tree-green-50 transition-colors inline-block"
           >
-            Emergency Line: {businessConfig.contact.emergencyPhone}
+            {t('quote.emergency.button')}
           </a>
         </div>
       </div>
