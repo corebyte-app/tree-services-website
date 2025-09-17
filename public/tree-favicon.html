@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+canvas { border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<canvas id="favicon" width="32" height="32"></canvas>
+
+<script>
+const canvas = document.getElementById('favicon');
+const ctx = canvas.getContext('2d');
+
+// Clear canvas with white background
+ctx.fillStyle = '#ffffff';
+ctx.fillRect(0, 0, 32, 32);
+
+// Draw tree trunk
+ctx.fillStyle = '#8B4513';
+ctx.fillRect(14, 20, 4, 8);
+
+// Draw tree foliage (layers)
+ctx.fillStyle = '#228B22';
+ctx.beginPath();
+ctx.arc(16, 18, 6, 0, 2 * Math.PI);
+ctx.fill();
+
+ctx.fillStyle = '#32CD32';
+ctx.beginPath();
+ctx.arc(16, 14, 5, 0, 2 * Math.PI);
+ctx.fill();
+
+ctx.fillStyle = '#00FF32';
+ctx.beginPath();
+ctx.arc(16, 10, 4, 0, 2 * Math.PI);
+ctx.fill();
+
+// Add highlight
+ctx.fillStyle = '#90EE90';
+ctx.globalAlpha = 0.8;
+ctx.beginPath();
+ctx.arc(13, 8, 1.5, 0, 2 * Math.PI);
+ctx.fill();
+
+// Convert to data URL and create downloadable link
+const dataURL = canvas.toDataURL('image/png');
+const link = document.createElement('a');
+link.download = 'favicon.png';
+link.href = dataURL;
+link.textContent = 'Download Favicon';
+document.body.appendChild(link);
+</script>
+
+</body>
+</html>
