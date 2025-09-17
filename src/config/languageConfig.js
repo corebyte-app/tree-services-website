@@ -118,8 +118,6 @@ export const translations = {
         treeRemoval: "Tree Removal",
         treeTrimming: "Tree Trimming/Pruning",
         stumpGrinding: "Stump Grinding",
-        landClearing: "Land Clearing",
-        emergency: "Emergency Services",
         multiple: "Multiple Services",
         consultation: "Consultation Only"
       },
@@ -302,8 +300,6 @@ export const translations = {
         treeRemoval: "树木移除",
         treeTrimming: "树木修剪/整形",
         stumpGrinding: "树桩研磨",
-        landClearing: "土地清理",
-        emergency: "紧急服务",
         multiple: "多项服务",
         consultation: "仅咨询"
       },
