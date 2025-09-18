@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <LanguageProvider>
-      <Router>
+      <Router basename={process.env.NODE_ENV === 'production' ? '/tree-services-website' : ''}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
